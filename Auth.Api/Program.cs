@@ -1,10 +1,13 @@
 using Auth.API;
+using Auth.API.DI;
 using Auth.Applicaton.Authentication.JwtToken;
 using Auth.Infrastructure.MapEntitity;
 using Auth.Infrastructure.RabbitMQ;
 using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.ApplicationInit();
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 builder.Services.Configure<RabbitMqOptions>(builder.Configuration.GetSection(nameof(RabbitMqOptions)));

@@ -20,7 +20,8 @@ namespace Auth.Applicaton.Authentication.JwtToken
             {
                 new(ClaimTypes.NameIdentifier, user.Id.ToString()!),
                 new(ClaimTypes.Role, user.Role),
-                new(ClaimTypes.Role, user.Email)
+                new(ClaimTypes.Email, user.Email),
+                new(ClaimTypes.GivenName, user.UserName),
             };
 
             var signingCredentials = new SigningCredentials(
